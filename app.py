@@ -25,6 +25,7 @@ async def get_message(request):
         raise web.HTTPNotFound()
 
     message = cryptographer.decrypt(key, ciphertext)
+    storage.remove_message(message_id)
     return {'message': message}
 
 
@@ -36,9 +37,8 @@ async def save_message(request):
     key, ciphertext = cryptographer.encrypt(message)
     message_id = storage.save_ciphertext(ciphertext)
 
-    url = '{host}{message_id}{key}'.format(host=settings.host,
-                                           message_id=message_id,
-                                           key=key)
+    url = '{host}{message_id}{key}'.format(
+        host=settings.host, message_id=message_id, key=key)
     return {'url': url}
 
 

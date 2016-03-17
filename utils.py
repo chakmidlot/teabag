@@ -9,9 +9,13 @@ def check_path():
     if it is not exist
     """
 
-    path = settings.keys_path
-    if not os.path.exists(path):
-        os.makedirs(path)
+    if not os.path.exists(settings.keys_path):
+        os.makedirs(settings.keys_path)
+
 
 def startup_check():
+    """
+    all action we should do on startup
+    """
+
     check_path()

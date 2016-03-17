@@ -14,12 +14,10 @@ def encrypt(message):
 
     key_base64 = base64.urlsafe_b64encode(key).decode('utf-8')
     ciphertext = aes.encrypt(message_bytes)
-
     return key_base64, ciphertext
 
 
 def decrypt(key_base64, ciphertext):
     key = base64.urlsafe_b64decode(key_base64)
     aes = AES.new(key)
-
     return aes.decrypt(ciphertext).strip(b'\x00').decode('utf-8')
