@@ -1,9 +1,10 @@
-import base64
 import os
+import base64
 
 from Crypto import Random
 
 import settings
+import shredder
 
 
 class FileNotFound(Exception):
@@ -28,6 +29,5 @@ def load_ciphertext(message_id):
     except FileNotFoundError:
         raise FileNotFound
 
-    os.remove(path)
-
+    shredder.remove_file(path)
     return ciphertext
