@@ -1,3 +1,5 @@
+import os
+
 import jinja2
 import aiohttp_jinja2
 from aiohttp import web
@@ -52,9 +54,14 @@ def main():
     app.router.add_route('GET', '/{token}', get_message)
     app.router.add_route('POST', '/save', save_message)
 
+    path = os.path.join( os.path.dirname(__file__), 'static')
+    app.router.add_static('/static/', path, name='static')
+
     web.run_app(app)
 
-# http://127.0.0.1:8000/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz
 
 if __name__ == '__main__':
     main()
+
+
+# http://127.0.0.1:8000/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz
