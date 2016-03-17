@@ -21,7 +21,7 @@ async def save_message(request):
     try:
         token = teabag.save_message(message)
     except ValueError:
-        pass
+        raise web.HTTPBadRequest()
 
     url = '{host}api/{token}'.format(host=settings.host, token=token)
     return web.Response(body=url.encode('utf-8'))
