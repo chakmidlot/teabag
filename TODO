@@ -1,9 +1,16 @@
+backend:
 - json API
 - unit tests
+- make sure we use truly random, not pseudo-random
+- shred the message file while deleting
+- optional length of message URL ?
+
+frontend:
 - more informative html pages
 - more html pages: about, etc
-- make sure we use truly random, not pseudo-random
-- shred the message file
-- shorter message URL (optional?)
+- copy-to-clipboard button
+
+other:
 - describe deployment requirements in separate document:
-  no swap, no FS with journal, etc
+    no swap, no FS with journal, etc
+- clone features from other services like this
