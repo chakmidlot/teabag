@@ -16,13 +16,15 @@ async def index(request):
 @aiohttp_jinja2.template('message.jinja2')
 async def get_message(request):
     token = request.match_info['token'].encode()
-
     message_id = token[:settings.message_id_size].decode('utf-8')
     key = token[settings.message_id_size:].decode('utf-8')
 
-    ciphertext = storage.load_ciphertext(message_id)
-    message = cryptographer.decrypt(key, ciphertext)
+    try:
+        ciphertext = storage.load_ciphertext(message_id)
+    except storage.FileNotFound:
+        raise web.HTTPNotFound()
 
+    message = cryptographer.decrypt(key, ciphertext)
     return {'message': message}
 
 
