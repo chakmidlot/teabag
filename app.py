@@ -14,7 +14,6 @@ async def index(request):
 
 @aiohttp_jinja2.template('message.jinja2')
 async def get_message(request):
-
     token = request.match_info['token'].encode()
 
     message_id = token[:settings.message_id_size].decode('utf-8')
@@ -41,16 +40,12 @@ async def save_message(request):
 
 
 app = web.Application()
-
-aiohttp_jinja2.setup(app,
-    loader=jinja2.FileSystemLoader('templates'))
+aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
 
 app.router.add_route('GET', '/', index)
 app.router.add_route('GET', '/{token}', get_message)
 app.router.add_route('POST', '/save', save_message)
 
-
 web.run_app(app)
-
 
 # http://127.0.0.1:8000/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz

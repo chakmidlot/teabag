@@ -7,8 +7,8 @@ import settings
 
 
 def save_ciphertext(ciphertext):
-
-    message_id = base64.urlsafe_b64encode(Random.get_random_bytes(settings.message_id_size * 3 // 4)).decode('utf-8')
+    random_bytes = Random.get_random_bytes(settings.message_id_size * 3 // 4)
+    message_id = base64.urlsafe_b64encode(random_bytes).decode('utf-8')
 
     file_path = os.path.join(settings.keys_path, message_id)
     open(file_path, 'wb').write(ciphertext)
