@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Write the message</title>
-</head>
-<body>
-<form method=POST action="/save">
-    <textarea name=message></textarea><br>
-    <button type="submit">Save</button>
-</form>
-</body>
-</html>
+{% extends "base.jinja2" %}
+
+{% block title %}Write the message{% endblock %}
+
+{% block content %}
+    <div class="service-text">
+        Write your message here:
+    </div>
+    <form method=POST action="/save">
+        <textarea rows="16" cols="80" name=message></textarea>
+        <br>
+        <button type="submit">Save the message</button>
+    </form>
+{% endblock %}

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<a href="http://{{ url }}">{{ url }}</a>
-</body>
-</html>
+{% extends "base.jinja2" %}
+
+{% block content %}
+    <div class="service-text">
+        Your message has been saved.
+        Once this link be opened, the message will be removed.
+    </div>
+    <br>
+    <div>http://{{ url }}</div>
+{% endblock %}
