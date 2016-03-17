@@ -1,10 +1,11 @@
-import aiohttp_jinja2
 import jinja2
+import aiohttp_jinja2
 from aiohttp import web
 
-import cryptographer
 import settings
 import storage
+import cryptographer
+import utils
 
 
 @aiohttp_jinja2.template('main.jinja2')
@@ -28,24 +29,28 @@ async def get_message(request):
 @aiohttp_jinja2.template('url.jinja2')
 async def save_message(request):
     data = await request.post()
-
     message = data['message']
 
     key, ciphertext = cryptographer.encrypt(message)
-
     message_id = storage.save_ciphertext(ciphertext)
 
     url = settings.host + message_id + key
     return {'url': url}
 
 
-app = web.Application()
-aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
+def main():
+    utils.startup_check()
 
-app.router.add_route('GET', '/', index)
-app.router.add_route('GET', '/{token}', get_message)
-app.router.add_route('POST', '/save', save_message)
+    app = web.Application()
+    aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
 
-web.run_app(app)
+    app.router.add_route('GET', '/', index)
+    app.router.add_route('GET', '/{token}', get_message)
+    app.router.add_route('POST', '/save', save_message)
+
+    web.run_app(app)
 
 # http://127.0.0.1:8000/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz
+
+if __name__ == '__main__':
+    main()
