@@ -12,5 +12,5 @@ frontend:
 
 other:
 - describe deployment requirements in separate document:
-    no swap, no FS with journal, https, nginx without cache, etc
+    no swap, no FS with journal, https, nginx without cache, no logs, etc
 - clone features from other services like this

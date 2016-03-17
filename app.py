@@ -28,12 +28,11 @@ async def get_message(request):
 async def save_message(request):
     data = await request.post()
     try:
-        message_id, key = teabag.save_message(data['message'])
+        token = teabag.save_message(data['message'])
     except ValueError:
         return web.HTTPFound('/')
 
-    url = '{host}{message_id}{key}'.format(
-        host=settings.host, message_id=message_id, key=key)
+    url = '{host}{token}'.format(host=settings.host, token=token)
     return {'url': url}
 
 

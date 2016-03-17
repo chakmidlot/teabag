@@ -18,6 +18,8 @@ def get_message(token):
 def save_message(message):
     if not message:
         raise ValueError('Empty message')
+
     key, ciphertext = cryptographer.encrypt(message)
     message_id = storage.save_ciphertext(ciphertext)
-    return message_id, key
+    token = message_id + key
+    return token
