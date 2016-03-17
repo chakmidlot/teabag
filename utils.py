@@ -15,7 +15,7 @@ def check_path():
 
 def startup_check():
     """
-    all action we should do on startup
+    actions that we should do on startup
     """
 
     check_path()

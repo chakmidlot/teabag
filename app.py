@@ -27,7 +27,10 @@ async def get_message(request):
 @aiohttp_jinja2.template('url.jinja2')
 async def save_message(request):
     data = await request.post()
-    message_id, key = teabag.save_message(data['message'])
+    try:
+        message_id, key = teabag.save_message(data['message'])
+    except ValueError:
+        return web.HTTPFound('/')
 
     url = '{host}{message_id}{key}'.format(
         host=settings.host, message_id=message_id, key=key)
