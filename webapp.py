@@ -5,13 +5,16 @@ import aiohttp_jinja2
 from aiohttp import web
 
 import utils
+import api
 import frontend
 
 
 def add_routes(app):
     app.router.add_route('GET', '/', frontend.index)
     app.router.add_route('GET', '/{token}', frontend.get_message)
+    app.router.add_route('GET', '/api/{token}', api.get_message)
     app.router.add_route('POST', '/save', frontend.save_message)
+    app.router.add_route('POST', '/api/save', api.save_message)
 
 
 def main():

@@ -1,5 +1,4 @@
 backend:
-- json API
 - unit tests
 - make sure we use truly random, not pseudo-random
 - shred the message file while deleting
