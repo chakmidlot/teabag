@@ -5,8 +5,7 @@ import aiohttp_jinja2
 from aiohttp import web
 
 import settings
-import storage
-import cryptographer
+import teabag
 import utils
 
 
@@ -18,26 +17,17 @@ async def index(request):
 @aiohttp_jinja2.template('message.jinja2')
 async def get_message(request):
     token = request.match_info['token'].encode()
-    message_id = token[:settings.message_id_size].decode('utf-8')
-    key = token[settings.message_id_size:].decode('utf-8')
-
     try:
-        ciphertext = storage.load_ciphertext(message_id)
-    except storage.FileNotFound:
+        message = teabag.get_message(token)
+    except FileNotFoundError:
         raise web.HTTPNotFound()
-
-    message = cryptographer.decrypt(key, ciphertext)
-    storage.remove_message(message_id)
     return {'message': message}
 
 
 @aiohttp_jinja2.template('url.jinja2')
 async def save_message(request):
     data = await request.post()
-    message = data['message']
-
-    key, ciphertext = cryptographer.encrypt(message)
-    message_id = storage.save_ciphertext(ciphertext)
+    message_id, key = teabag.save_message(data['message'])
 
     url = '{host}{message_id}{key}'.format(
         host=settings.host, message_id=message_id, key=key)
