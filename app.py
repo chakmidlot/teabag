@@ -34,7 +34,9 @@ async def save_message(request):
     key, ciphertext = cryptographer.encrypt(message)
     message_id = storage.save_ciphertext(ciphertext)
 
-    url = settings.host + message_id + key
+    url = '{host}{message_id}{key}'.format(host=settings.host,
+                                           message_id=message_id,
+                                           key=key)
     return {'url': url}
 
 
