@@ -4,7 +4,7 @@ import base64
 from Crypto import Random
 
 import settings
-import shredder
+import teabag.shredder as shredder
 
 
 def save_ciphertext(ciphertext):

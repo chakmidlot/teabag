@@ -1,6 +1,6 @@
 import settings
-import storage
-import cryptographer
+import teabag.storage as storage
+import teabag.cryptographer as cryptographer
 
 
 def get_message(token):
