@@ -1,0 +1,9 @@
+- json API
+- unit tests
+- more informative html pages
+- more html pages: about, etc
+- make sure we use truly random, not pseudo-random
+- shred the message file
+- shorter message URL (optional?)
+- describe deployment requirements in separate document:
+  no swap, no FS with journal, etc
