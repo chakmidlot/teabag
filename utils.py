@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 import settings
 
@@ -19,3 +20,12 @@ def startup_check():
     """
 
     check_path()
+
+
+def shell_execute(command):
+    process = subprocess.Popen(command, stdout=subprocess.PIPE)
+    code = process.wait()
+    if code != 0:
+        raise RuntimeError('Command failed')
+    output = [line.decode() for line in process.stdout]
+    return ''.join(output)
