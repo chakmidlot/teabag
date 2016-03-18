@@ -1,10 +1,10 @@
 backend:
 - unit tests
 - make sure we use truly random, not pseudo-random
-- shred the message file while deleting
 - optional length of message URL ?
 - add more checks of arg types for security
 - check for message length? what the appropriate limit?
+- logs ?
 
 frontend:
 - more informative html pages
@@ -13,5 +13,7 @@ frontend:
 
 other:
 - describe deployment requirements in separate document:
-    no swap, no FS with journal, https, nginx without cache, no logs, etc
-- clone features from other services like this
+    no swap, no FS with journal, https, nginx without cache, no logs,
+    change keys_path, etc
+- clone features from other services like this:
+    password, creating link clones, directly send link to email, etc
