@@ -5,6 +5,7 @@ backend:
 - add more checks of arg types for security
 - check for message length? what the appropriate limit?
 - logs ?
+- make more calls asynchronous
 
 frontend:
 - more informative html pages

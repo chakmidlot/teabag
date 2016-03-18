@@ -23,6 +23,11 @@ def startup_check():
 
 
 def shell_execute(command):
+    """
+    executes provided command in system shell
+    and returns it's output
+    """
+
     process = subprocess.Popen(command, stdout=subprocess.PIPE)
     code = process.wait()
     if code != 0:

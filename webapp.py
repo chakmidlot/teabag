@@ -23,7 +23,7 @@ def main():
     app = web.Application()
     aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
 
-    path = os.path.join( os.path.dirname(__file__), 'static')
+    path = os.path.join(os.path.dirname(__file__), 'static')
     app.router.add_static('/static/', path, name='static')
 
     add_routes(app)
