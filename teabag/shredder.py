@@ -1,11 +1,15 @@
 import os
 import subprocess
 
+import settings
+
 
 def remove_file(file_path):
-    command = ['shred', '-u', '-z', '-n', '7', file_path]
+    command = ['shred', '-u', '-z', '-n',
+               str(settings.file_shred_times), file_path]
     _execute(command)
-    assert not os.path.isfile(file_path)
+    if os.path.isfile(file_path):
+        raise RuntimeError('File {} has not been removed!'.format(file_path))
 
 
 def _execute(command):
