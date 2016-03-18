@@ -11,14 +11,17 @@ async def index(request):
     return {}
 
 
-@aiohttp_jinja2.template('message.jinja2')
 async def get_message(request):
     token = request.match_info['token'].encode()
     try:
         message = teabag.get_message(token)
+        context = {'message': message}
+        response = aiohttp_jinja2.render_template(
+            'message.jinja2', request, context)
     except FileNotFoundError:
-        raise web.HTTPNotFound()
-    return {'message': message}
+        response = aiohttp_jinja2.render_template('404.jinja2', request, {})
+        response.set_status(404)
+    return response
 
 
 @aiohttp_jinja2.template('url.jinja2')
