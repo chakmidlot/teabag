@@ -19,8 +19,7 @@ async def get_message(request):
         response = aiohttp_jinja2.render_template(
             'message.jinja2', request, context)
     except FileNotFoundError:
-        response = aiohttp_jinja2.render_template('404.jinja2', request, {})
-        response.set_status(404)
+        response = _get_404_response(request)
     return response
 
 
@@ -34,3 +33,9 @@ async def save_message(request):
 
     url = '{host}{token}'.format(host=settings.host, token=token)
     return {'url': url}
+
+
+def _get_404_response(request):
+    response = aiohttp_jinja2.render_template('404.jinja2', request, {})
+    response.set_status(404)
+    return response
