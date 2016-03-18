@@ -3,6 +3,8 @@ backend:
 - make sure we use truly random, not pseudo-random
 - shred the message file while deleting
 - optional length of message URL ?
+- add more checks of arg types for security
+- check for message length? what the appropriate limit?
 
 frontend:
 - more informative html pages
