@@ -3,18 +3,32 @@ backend:
 - make sure we use truly random, not pseudo-random
 - optional length of message URL ?
 - add more checks of arg types for security
-- check for message length? what the appropriate limit?
+- check for message length ? (what the appropriate limit?)
 - logs ?
 - make more calls asynchronous
+- autoremove a message after fixed amount of time (year or two)
+
 
 frontend:
 - more informative html pages
-- more html pages: about, etc
+- more html pages:
+    - about
+    - terms
+    - etc
 - copy-to-clipboard button
+
 
 other:
 - describe deployment requirements in separate document:
-    no swap, no FS with journal, https, nginx without cache, no logs,
-    change keys_path, etc
+    - no swap
+    - no FS with journal
+    - https
+    - nginx without cache
+    - no logs
+    - change keys_path
+    - etc
 - clone features from other services like this:
-    password, creating link clones, directly send link to email, etc
+    - password
+    - creating link clones
+    - directly send link(s) to email(s)
+    - etc

@@ -4,7 +4,7 @@ import subprocess
 import settings
 
 
-def check_path():
+def check_keys_path():
     """
     create path for messages
     if it is not exist
@@ -19,7 +19,7 @@ def startup_check():
     actions that we should do on startup
     """
 
-    check_path()
+    check_keys_path()
 
 
 def shell_execute(command):

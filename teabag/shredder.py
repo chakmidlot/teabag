@@ -5,7 +5,8 @@ import utils
 
 
 def _shred_remove_file(file_path):
-    command = ['shred', '-u', '-z', '-n', str(settings.shred_times), file_path]
+    shred_times = str(settings.shred_times)
+    command = ['shred', '-u', '-z', '-n', shred_times, file_path]
     utils.shell_execute(command)
 
 
