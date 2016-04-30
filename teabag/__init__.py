@@ -3,6 +3,12 @@ import teabag.storage as storage
 import teabag.cryptographer as cryptographer
 
 
+def is_message_exists(token):
+    id_size = settings.message_id_size
+    message_id = token[:id_size].decode('utf-8')
+    return storage.is_exists(message_id)
+
+
 def get_message(token):
     id_size = settings.message_id_size
     message_id = token[:id_size].decode('utf-8')

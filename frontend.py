@@ -10,6 +10,17 @@ async def index(request):
     return {}
 
 
+async def get_message_intermediate(request):
+    token = request.match_info['token'].encode()
+    if teabag.is_message_exists(token):
+        context = {'url': '/message/{}'.format(token.decode())}
+        response = aiohttp_jinja2.render_template(
+            'intermediate.jinja2', request, context)
+    else:
+        response = _get_404_response(request)
+    return response
+
+
 async def get_message(request):
     token = request.match_info['token'].encode()
     try:

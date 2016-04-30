@@ -1,0 +1,13 @@
+{% extends "base.jinja2" %}
+
+{% block title %}Message{% endblock %}
+
+{% block content %}
+    <div class="service-text">
+        This message is available one time and will be removed after reading.
+    </div>
+    <br>
+    <div>
+        <a href="{{ url }}">To see message</a>
+    </div>
+{% endblock %}

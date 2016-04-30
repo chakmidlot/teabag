@@ -24,5 +24,9 @@ def remove_message(message_id):
     shredder.remove_file(_get_path(message_id))
 
 
+def is_exists(message_id):
+    return os.path.exists(_get_path(message_id))
+
+
 def _get_path(message_id):
     return os.path.join(settings.keys_path, message_id)

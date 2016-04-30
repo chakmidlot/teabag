@@ -11,7 +11,8 @@ import frontend
 
 def add_routes(app):
     app.router.add_route('GET', '/', frontend.index)
-    app.router.add_route('GET', '/{token}', frontend.get_message)
+    app.router.add_route('GET', '/{token}', frontend.get_message_intermediate)
+    app.router.add_route('GET', '/message/{token}', frontend.get_message)
     app.router.add_route('GET', '/api/{token}', api.get_message)
     app.router.add_route('POST', '/save', frontend.save_message)
     app.router.add_route('POST', '/api/save', api.save_message)
