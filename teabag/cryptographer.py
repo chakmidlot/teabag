@@ -20,4 +20,6 @@ def encrypt(message):
 def decrypt(key_base64, ciphertext):
     key = base64.urlsafe_b64decode(key_base64)
     aes = AES.new(key)
-    return aes.decrypt(ciphertext).strip(b'\x00').decode('utf-8')
+    message_bytes = aes.decrypt(ciphertext).strip(b'\x00')
+    message = message_bytes.decode('utf-8')
+    return message

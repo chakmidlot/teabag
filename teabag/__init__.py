@@ -4,12 +4,13 @@ import teabag.cryptographer as cryptographer
 
 
 def is_message_exists(token):
-    id_size = settings.message_id_size
-    message_id = token[:id_size].decode('utf-8')
-    return storage.is_exists(message_id)
+    try:
+        return bool(get_message(token, remove=False))
+    except Exception:
+        return False
 
 
-def get_message(token):
+def get_message(token, remove=True):
     id_size = settings.message_id_size
     message_id = token[:id_size].decode('utf-8')
     key = token[id_size:].decode('utf-8')
@@ -17,7 +18,8 @@ def get_message(token):
     ciphertext = storage.load_ciphertext(message_id)
     message = cryptographer.decrypt(key, ciphertext)
 
-    storage.remove_message(message_id)
+    if remove:
+        storage.remove_message(message_id)
     return message
 
 
