@@ -6,5 +6,15 @@
         Once this link be opened, the message will be removed.
     </div>
     <br>
-    <div>http://{{ url }}</div>
+
+    <input id="url-input" value="http://{{ url }}" style="width: 36em;" readonly>
+    <button id="copy-btn">Copy to Clipboard</button>
+
+    <script type="text/javascript">
+        function clickListener() {
+            document.getElementById('url-input').select();
+            document.execCommand('copy');
+        }
+        document.getElementById('copy-btn').addEventListener('click', clickListener);
+    </script>
 {% endblock %}

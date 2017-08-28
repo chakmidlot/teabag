@@ -15,7 +15,6 @@ frontend:
     - about
     - terms
     - etc
-- copy-to-clipboard button
 
 
 other:
