@@ -5,7 +5,8 @@ import teabag.cryptographer as cryptographer
 
 def is_message_exists(token):
     try:
-        return bool(get_message(token, remove=False))
+        get_message(token, remove=False)
+        return True
     except Exception:
         return False
 
