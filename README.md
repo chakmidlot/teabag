@@ -3,7 +3,7 @@ Send messages that will self-destruct after being read.
 
 Quick start
 
-You need Python 3.5.
+You need Python>=3.5.
 
 1) Clone the repo and `cd` to the teabag folder
 
@@ -23,5 +23,6 @@ pip install -r requirements
 3) Run it:
 
 ```
+cd src
 python3 webapp.py
 ```

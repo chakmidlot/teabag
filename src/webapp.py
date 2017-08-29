@@ -1,12 +1,12 @@
 import os
 
-import jinja2
 import aiohttp_jinja2
+import jinja2
 from aiohttp import web
 
-import utils
 import api
 import frontend
+import utils
 
 
 def add_routes(app):
@@ -28,11 +28,12 @@ def main():
     app.router.add_static('/static/', path, name='static')
 
     add_routes(app)
-    web.run_app(app)
+    return app
 
 
+app = main()
 if __name__ == '__main__':
-    main()
+    web.run_app(app)
 
 
 # http://127.0.0.1:8000/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz
