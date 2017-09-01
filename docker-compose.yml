@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  teabag-gunicorn:
+    build: .
+    ports:
+      - 5001:8080
+
+  nginx:
+    restart: always
+    build:
+      context: ./deployment
+      dockerfile: Dockerfile.nginx
+    ports:
+      - 5000:5002
+    depends_on:
+      - teabag-gunicorn

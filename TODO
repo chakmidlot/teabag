@@ -1,5 +1,11 @@
+docker:
+- make host in settings dynamic
+- mount volume with messages from host
+- disable cache and logs of nginx
+
+
 backend:
-- unit tests
+- auto tests
 - make sure we use truly random, not pseudo-random
 - optional length of message URL ?
 - add more checks of arg types for security
