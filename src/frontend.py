@@ -1,7 +1,6 @@
 import aiohttp_jinja2
 from aiohttp import web
 
-import settings
 import teabag
 
 
@@ -41,7 +40,7 @@ async def save_message(request):
     except ValueError:
         return web.HTTPFound('/')
 
-    url = '{host}{token}'.format(host=settings.host, token=token)
+    url = '{host}/{token}'.format(host=request.host, token=token)
     return {'url': url}
 
 

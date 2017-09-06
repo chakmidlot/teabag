@@ -1,6 +1,5 @@
 from aiohttp import web
 
-import settings
 import teabag
 
 
@@ -23,5 +22,5 @@ async def save_message(request):
     except ValueError:
         raise web.HTTPBadRequest()
 
-    url = '{host}api/{token}'.format(host=settings.host, token=token)
+    url = '{host}/api/{token}'.format(host=request.host, token=token)
     return web.Response(body=url.encode('utf-8'))
