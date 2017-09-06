@@ -8,6 +8,6 @@ services:
     restart: always
     build: ./deployment/nginx
     ports:
-      - 5000:5002
+      - 5000:80
     depends_on:
       - gunicorn
