@@ -1,4 +1,4 @@
-keys_path = '/tmp/teabag'
+keys_path = '../message_store'
 
 message_id_size = 8
 

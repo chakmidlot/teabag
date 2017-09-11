@@ -1,7 +1,5 @@
 docker:
-- make host in settings dynamic
-- mount volume with messages from host (really need to?)
-
+- add https port
 
 backend:
 - auto tests
@@ -10,7 +8,7 @@ backend:
 - add more checks of arg types for security
 - check for message length ? (what the appropriate limit?)
 - make more calls asynchronous
-- autoremove a message after fixed amount of time (year or two)
+- autoremove a message after fixed amount of time (5 years?)
 
 
 frontend:

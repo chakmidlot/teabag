@@ -3,6 +3,8 @@ version: '3'
 services:
   gunicorn:
     build: ./src
+    volumes:
+      - ./message_store:/opt/teabag/message_store
 
   nginx:
     restart: always
