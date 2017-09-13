@@ -1,0 +1,4 @@
+aiohttp==2.2.5
+aiohttp-jinja2==0.13.0
+pycrypto==2.6.1
+gunicorn==19.7.1

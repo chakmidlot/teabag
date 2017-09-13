@@ -1,3 +1,5 @@
 __pycache__
 .idea
 .directory
+message_store
+.tbenv

@@ -1,12 +1,15 @@
+docker:
+- add https port
+
 backend:
-- unit tests
+- auto tests
+- use 'import_string' for settings like in Django
 - make sure we use truly random, not pseudo-random
 - optional length of message URL ?
 - add more checks of arg types for security
 - check for message length ? (what the appropriate limit?)
-- logs ?
 - make more calls asynchronous
-- autoremove a message after fixed amount of time (year or two)
+- autoremove a message after fixed amount of time (5 years?)
 
 
 frontend:
