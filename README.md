@@ -15,7 +15,7 @@ virtualenv -p /usr/bin/python3 --no-site-packages .tbenv
 ```
 3) Install dependencies:
 ```
-pip install -r src/requirements
+pip install -r src/requirements.txt
 ```
 4) Run it:
 ```

@@ -3,6 +3,7 @@ docker:
 
 backend:
 - auto tests
+- use 'import_string' for settings like in Django
 - make sure we use truly random, not pseudo-random
 - optional length of message URL ?
 - add more checks of arg types for security
