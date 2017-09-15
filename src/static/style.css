@@ -6,3 +6,12 @@ a.service-link {
     text-decoration: none;
     color: brown;
 }
+
+hr {
+    color: brown;
+}
+
+div.message {
+    white-space: pre;
+    font-family: monospace;
+}
