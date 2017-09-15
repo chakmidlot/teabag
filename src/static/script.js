@@ -1,10 +1,13 @@
 function main() {
 
-    function clickListener() {
-        document.getElementById('url-input').select();
-        document.execCommand('copy');
-    }
+    var copyButton = document.getElementById('copy-btn');
+    var inputToCopy = document.getElementById('input-to-copy');
 
-    document.getElementById('copy-btn').addEventListener('click', clickListener);
+    if (copyButton && inputToCopy) {
+        copyButton.addEventListener('click', function() {
+            inputToCopy.select();
+            document.execCommand('copy');
+        });
+    }
 
 }

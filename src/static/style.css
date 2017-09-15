@@ -15,3 +15,7 @@ div.message {
     white-space: pre;
     font-family: monospace;
 }
+
+input#input-to-copy {
+    width: 36em;
+}
