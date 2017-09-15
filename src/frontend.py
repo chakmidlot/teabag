@@ -1,12 +1,18 @@
 import aiohttp_jinja2
 from aiohttp import web
 
+import settings
 import teabag
 
 
 @aiohttp_jinja2.template('main.jinja2')
 async def index(request):
     return {}
+
+
+@aiohttp_jinja2.template('about.jinja2')
+async def about(request):
+    return {'shred_times': settings.shred_times}
 
 
 async def get_message_intermediate(request):

@@ -1,0 +1,28 @@
+{% extends "base.jinja2" %}
+
+{% block title %}About Teabag{% endblock %}
+
+{% block content %}
+    <div class="service-text">About Teabag</div>
+    <br>
+    <div>
+        Teabag allows you to save a text message and then read it by the link provided.
+        <br>
+        The URL to access the message contains a key which is used to encrypt the message.
+        <br>
+        Since you get the URL, Teabag doesn't know the key anymore and can't decrypt the message by itself.
+        <br>
+        When you visit the provided URL and agree you want to see it, the message is decrypted and removed from the server.
+        <br>
+        The place on hard drive where the message has been stored is cleaned with shred utility {{ shred_times }} times.
+        <br>
+        The server doesn't keep any logs.
+        <br><br>
+        You can review all the code and deployment configuration in our public repo:
+        <a class="service-link" href="https://github.com/chakmidlot/teabag">github.com/chakmidlot/teabag</a>
+        <br>
+        Teabag also has API. See the source code to know how to use it.
+        <br>
+        The project is in deep alpha state, so feel free to create issues on Github if you have ideas what to improve.
+    </div>
+{% endblock %}

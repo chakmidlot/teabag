@@ -14,10 +14,7 @@ backend:
 
 frontend:
 - more informative html pages
-- more html pages:
-    - about
-    - terms
-    - etc
+- check UX on mobile devices
 
 
 other:

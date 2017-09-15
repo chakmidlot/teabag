@@ -7,6 +7,17 @@ a.service-link {
     color: brown;
 }
 
+a.big-service-link {
+    text-decoration: none;
+    color: brown;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.right-space {
+    margin-right: 3em;
+}
+
 hr {
     color: brown;
 }
@@ -18,4 +29,8 @@ div.message {
 
 input#input-to-copy {
     width: 36em;
+}
+
+div.menu {
+    display:inline;
 }

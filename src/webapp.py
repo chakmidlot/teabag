@@ -11,10 +11,13 @@ import utils
 
 def add_routes(app):
     app.router.add_route('GET', '/', frontend.index)
+    app.router.add_route('GET', '/about', frontend.about)
+
     app.router.add_route('GET', '/{token}', frontend.get_message_intermediate)
     app.router.add_route('GET', '/message/{token}', frontend.get_message)
-    app.router.add_route('GET', '/api/{token}', api.get_message)
     app.router.add_route('POST', '/save', frontend.save_message)
+
+    app.router.add_route('GET', '/api/{token}', api.get_message)
     app.router.add_route('POST', '/api/save', api.save_message)
 
 
@@ -37,4 +40,4 @@ if __name__ == '__main__':
     web.run_app(app)
 
 
-# http://127.0.0.1:8080/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz
+# http://127.0.0.1:8080/message/30HVbSi5V_wd6QSeYimfkIVW10LkjiY6qxbrg5cz
