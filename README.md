@@ -25,7 +25,9 @@ python3 webapp.py
 Now `teabag` runs locally on port 8080.
 
 ## Production deployment to Ubuntu 16.04 ##
+
 1) Log in as `root`
+
 2) Install docker and docker-compose
 ```
 apt install docker docker-compose
@@ -40,3 +42,8 @@ cd teabag/
 docker-compose up --build -d
 ```
 Now `teabag` runs on port 80.
+
+## Run auto tests ##
+```
+./run_tests.sh
+```
