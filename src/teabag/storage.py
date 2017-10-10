@@ -10,13 +10,15 @@ import teabag.shredder as shredder
 def save_ciphertext(ciphertext):
     random_bytes = Random.get_random_bytes(settings.message_id_size * 3 // 4)
     message_id = base64.urlsafe_b64encode(random_bytes).decode('utf-8')
-    open(_get_path(message_id), 'wb').write(ciphertext)
+    with open(_get_path(message_id), 'wb') as f:
+        f.write(ciphertext)
     return message_id
 
 
 def load_ciphertext(message_id):
     path = _get_path(message_id)
-    ciphertext = open(path, 'rb').read()
+    with open(path, 'rb') as f:
+        ciphertext = f.read()
     return ciphertext
 
 
