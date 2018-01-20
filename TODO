@@ -14,7 +14,7 @@ backend:
 
 frontend:
 - more informative html pages
-- check UX on mobile devices
+- fix UI for mobile devices
 
 
 other:
